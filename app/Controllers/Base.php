@@ -14,15 +14,10 @@ public function index(){
     $data = $model->findAll();
     return $this->response->setJSON($data);  
   }
-
 public function create(){ 
 $model = $this->Model(); 
-$data = [
-  "title" => $this->request->getVar('title'), 
-  "content" =>  $this->request->getVar('content'),
-  ];
-$model->insert($data); 
-return $this->response->setJSON($data);
+$model->insert($this->request->getJSON()); 
+return $this->response->setJSON($this->request->getJSON());
  }
  
    public function delete($id){  
@@ -34,13 +29,8 @@ return $this->response->setJSON($data);
 
 public function edit($id){
 $model =$this->model();
-$data = [ 
-  "title" => $this->request->getJSON('title')['title'], 
-  "content" =>  $this->request->getJSON('content')['content'],
-
- ];
-$model->update($id, $data);
- return $this->response->setJSON($data);
+$model->update($id, $this->request->getJSON());
+ return $this->response->setJSON($this->request->getJSON());
   }
 
 }
