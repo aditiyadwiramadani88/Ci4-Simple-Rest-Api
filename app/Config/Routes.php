@@ -30,14 +30,15 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Home::index');
 
 
 
-$routes->get('/api/list', 'Base');
-$routes->post('/api/create', 'Base::create/');
-$routes->delete('api/delete/(:num)', 'Base::delete/$1');
-$routes->put('api/edit/(:num)', 'Base::edit/$1');
+
+$routes->get('/', 'Base');
+$routes->get('/(:num)', 'Base::Details/$1');
+$routes->post('/', 'Base::create');
+$routes->delete('/(:num)', 'Base::delete/$1');
+$routes->put('/(:num)', 'Base::edit/$1');
 
 
 
