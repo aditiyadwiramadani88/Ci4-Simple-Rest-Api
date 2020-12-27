@@ -1,5 +1,9 @@
 <p> composer update </p>
 <p> rename env to .env </p>
+<p> Create Database  ci4_api1</p>
+<p> php spark migrate </p>
+<p> php spark serve </p>
+
 
 
 <table>
